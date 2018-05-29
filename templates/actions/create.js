@@ -24,7 +24,7 @@ module.exports = function(interrupts = {}) {
         waterfall(
             [
                 done => {
-                    Model.create(data).exec((err, newInstance) => {
+                    Model.create(data).meta({fetch: true}).exec((err, newInstance) => {
                         if (err) {
                             return done(err);
                         }
