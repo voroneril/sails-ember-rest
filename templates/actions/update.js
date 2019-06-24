@@ -68,7 +68,7 @@ module.exports = function(interrupts = {}, afterUpdate) {
                     );
                 },
                 (matchingRecord, done) => {
-                    Model.update(pk, data).exec((err, records) => {
+                    Model.update(pk, data).meta({fetch: true}).exec((err, records) => {
                         if (err) {
                             return done(err);
                         }
